@@ -1,5 +1,5 @@
 <template>
-  <Nav :tvs="tvs"></Nav>
+  <Nav :tvs="tvs" :active="url"></Nav>
   <component :is="currentView" :value="url" />
 </template>
 

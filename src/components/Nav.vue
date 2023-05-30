@@ -7,7 +7,7 @@
       <ul class="nav-list">
         <li v-for="i in tvs" :key="i.name">
           <span v-if="i.isTv">
-            <a :href="'/#/?url=' + i.url"
+            <a :href="'/#/?url=' + i.url" :class="{ active: active == i.url }"
               >&nbsp;&nbsp;&nbsp;{{ i.name }}</a
             ></span
           >
@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-defineProps(["tvs"]);
+defineProps(["tvs", "active"]);
 </script>
 
 <style lang="less" scoped>
@@ -53,6 +53,9 @@ defineProps(["tvs"]);
     .nav-menu {
       display: none;
     }
+  }
+  .active {
+    color: #535bf2;
   }
   .nav-list {
     margin: 0;

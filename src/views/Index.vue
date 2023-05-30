@@ -1,6 +1,7 @@
 <template>
   <video-player
     style="width: 100%; height: 100vh"
+    autoplay
     :src="value"
     controls
     :volume="0.6"
