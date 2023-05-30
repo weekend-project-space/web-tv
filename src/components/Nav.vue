@@ -6,7 +6,7 @@
     <div class="nav-list-warp">
       <ul class="nav-list">
         <li v-for="i in tvs" :key="i.name">
-          <span v-if="i.isTv">
+          <span v-if="i.isTv" @click="setTitle(i.name)">
             <a :href="'/#/?url=' + i.url" :class="{ active: active == i.url }"
               >&nbsp;&nbsp;&nbsp;{{ i.name }}</a
             ></span
@@ -20,6 +20,10 @@
 
 <script setup>
 defineProps(["tvs", "active"]);
+
+function setTitle(title) {
+  document.title = title + " | Web TV";
+}
 </script>
 
 <style lang="less" scoped>
