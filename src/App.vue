@@ -30,11 +30,16 @@ const currentView = computed(() => {
 onMounted(() => {
   async function initTvList() {
     url.value = new URLSearchParams(window.location.search).get("url");
+    if (!url.value) {
+      url.value = new URLSearchParams(
+        window.location.hash.replace("#/", "")
+      ).get("url");
+    }
     // tvurl
     let tvUrl = undefined;
     if (
       url.value &&
-      (url.value.lastIndexOf(".json") || url.value.lastIndexOf(".txt"))
+      (url.value.lastIndexOf(".json") > 0 || url.value.lastIndexOf(".txt") > 0)
     ) {
       tvUrl = url.value;
       localStorage.setItem("tvUrl", tvUrl);
