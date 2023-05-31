@@ -14,10 +14,12 @@ npm install
 npm run serve
 ```
 
-localhost:5173/#/?url=xxx.json||xxx.m3u8||xxx.txt
+localhost:5173/#/?url=xxx.m3u8||xxx.json||xxx.txt||xxx.m3u
 
 [tvlist](./public/tvlist.txt)
 
 ## TV information source
 
 - https://owen2000wy.github.io/
+
+- https://github.com/imDazui/Tvlist-awesome-m3u-m3u8
