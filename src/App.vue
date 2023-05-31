@@ -38,15 +38,13 @@ onMounted(() => {
       url0 = params.get("url");
       tvlistUrl = params.get("s");
     }
-    tvlistUrl = tvlistUrl || localStorage.getItem("tvlistUrl");
+    tvlistUrl = tvlistUrl || localStorage.getItem("tvlistUrl") || "/tvlist.txt";
     let suffixName = tvlistUrl && suffix(tvlistUrl);
     if (tvlistUrl) {
       if (suffixName == "m3u8") {
         suffixName = "m3u";
       }
       localStorage.setItem("tvlistUrl", tvlistUrl);
-    } else {
-      tvlistUrl = "/tvlist.txt";
     }
     url.value = url0;
     // tvurl
