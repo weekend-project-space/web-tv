@@ -28,16 +28,16 @@ const convert = {
                     let args = line.split(',')
                     tvname = args[args.length - 1]
                     meta = undefined
-                    if (args.length > 2) {
-                        let arr = args.slice(1, args.length - 1)
+                    let metastr = line.substring(line.indexOf(' '), line.lastIndexOf(',')).trim()
+                    if (metastr.length > 2) {
                         meta = {}
-                        arr.forEach(element => {
-                            let kvs = element.split(' ')
-                            for (let kv of kvs) {
-                                let kvarr = kv.split('=')
+                        let kvs = metastr.split(' ')
+                        for (let kv of kvs) {
+                            let kvarr = kv.split('=')
+                            if (kvarr.length == 2) {
                                 meta[kvarr[0]] = kvarr[1].replace(/"/g, '')
                             }
-                        });
+                        }
                     }
                 } else {
                     r.push({

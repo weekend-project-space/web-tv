@@ -51,6 +51,7 @@ onMounted(() => {
     url.value = url0;
     // tvurl
     let d = await listTv(tvlistUrl);
+    // console.log(d);
     tvs.value = parse(d.data, suffixName);
     if (!url.value) {
       url.value = tvs.value[1].url;
