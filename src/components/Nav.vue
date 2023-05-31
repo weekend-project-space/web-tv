@@ -7,8 +7,17 @@
       <ul class="nav-list">
         <li v-for="i in tvs" :key="i.name">
           <span v-if="i.isTv" @click="setTitle(i.name)">
-            <a :href="'/#/?url=' + i.url" :class="{ active: active == i.url }"
-              >&nbsp;&nbsp;&nbsp;{{ i.name }}</a
+            <a
+              :href="'/#/?url=' + i.url"
+              :class="{ active: active == i.url }"
+              class="sub-nav"
+            >
+              <img
+                class="tv-logo"
+                v-if="i.meta && i.meta['tvg-logo']"
+                :src="i.meta['tvg-logo']"
+                alt=""
+              />{{ i.name }}</a
             ></span
           >
           <span v-else>{{ i.name }}</span>
@@ -68,6 +77,18 @@ function setTitle(title) {
 
     max-height: calc(100vh - 4rem);
     overflow: auto;
+  }
+  .sub-nav {
+    padding-left: 2rem;
+    height: 2rem;
+    line-height: 2rem;
+    display: flex;
+    align-items: center;
+    .tv-logo {
+      max-width: 3rem;
+      max-height: 2rem;
+      margin-right: 2rem;
+    }
   }
 }
 </style>

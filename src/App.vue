@@ -5,6 +5,7 @@
 
 <script setup>
 import { listTv } from "./api";
+import { parse, suffix } from "./utils/tvlistsupport";
 import { ref, computed, onMounted } from "vue";
 import Home from "./views/Index.vue";
 import NotFound from "./views/NotFound.vue";
@@ -29,42 +30,31 @@ const currentView = computed(() => {
 
 onMounted(() => {
   async function initTvList() {
-    url.value = new URLSearchParams(window.location.search).get("url");
-    if (!url.value) {
-      url.value = new URLSearchParams(
-        window.location.hash.replace("#/", "")
-      ).get("url");
+    let url0 = new URLSearchParams(window.location.search).get("url");
+    if (!url0) {
+      url0 = new URLSearchParams(window.location.hash.replace("#/", "")).get(
+        "url"
+      );
     }
     // tvurl
-    let tvUrl = undefined;
+    let tvlistUrl = undefined;
+    let suffixName = url0 && suffix(url0);
     if (
-      url.value &&
-      (url.value.lastIndexOf(".json") > 0 || url.value.lastIndexOf(".txt") > 0)
+      url0 &&
+      (suffixName == "json" || suffixName == "txt" || suffixName == "m3u")
     ) {
-      tvUrl = url.value;
-      localStorage.setItem("tvUrl", tvUrl);
-      url.value = undefined;
-    } else if (localStorage.getItem("tvUrl")) {
-      tvUrl = localStorage.getItem("tvUrl");
+      tvlistUrl = url0;
+      localStorage.setItem("tvlistUrl", tvlistUrl);
+    } else if (localStorage.getItem("tvlistUrl")) {
+      tvlistUrl = localStorage.getItem("tvlistUrl");
+      url.value = url0;
     } else {
-      tvUrl = "/tvlist.txt";
+      tvlistUrl = "/tvlist.txt";
+      url.value = url0;
     }
     // tvurl
-    let d = await listTv(tvUrl);
-    if (tvUrl.lastIndexOf(".txt")) {
-      tvs.value = d.data.split("\n").map((line) => {
-        if (line) {
-          let args = line.split(",");
-          return {
-            name: args[0],
-            url: args[1],
-            isTv: args[1].includes("http"),
-          };
-        }
-      });
-    } else {
-      tvs.value = d.data;
-    }
+    let d = await listTv(tvlistUrl);
+    tvs.value = parse(d.data, tvlistUrl);
     if (!url.value) {
       url.value = tvs.value[1].url;
     }
