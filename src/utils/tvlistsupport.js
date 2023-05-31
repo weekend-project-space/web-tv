@@ -5,7 +5,7 @@ export function parse(obj, name) {
 
 
 export function suffix(name) {
-    return name.substring(name.lastIndexOf('.') + 1);
+    return name.lastIndexOf('.') > 0 - 1 ? name.substring(name.lastIndexOf('.') + 1) : name;
 }
 
 const convert = {

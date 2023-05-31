@@ -30,31 +30,28 @@ const currentView = computed(() => {
 
 onMounted(() => {
   async function initTvList() {
-    let url0 = new URLSearchParams(window.location.search).get("url");
-    if (!url0) {
-      url0 = new URLSearchParams(window.location.hash.replace("#/", "")).get(
-        "url"
-      );
+    let params = new URLSearchParams(window.location.search);
+    let url0 = params.get("url");
+    let tvlistUrl = params.get("s");
+    if (!(url0 || tvlistUrl)) {
+      params = new URLSearchParams(window.location.hash.replace("#/", ""));
+      url0 = params.get("url");
+      tvlistUrl = params.get("s");
     }
-    // tvurl
-    let tvlistUrl = undefined;
-    let suffixName = url0 && suffix(url0);
-    if (
-      url0 &&
-      (suffixName == "json" || suffixName == "txt" || suffixName == "m3u")
-    ) {
-      tvlistUrl = url0;
+    tvlistUrl = tvlistUrl || localStorage.getItem("tvlistUrl");
+    let suffixName = tvlistUrl && suffix(tvlistUrl);
+    if (tvlistUrl) {
+      if (suffixName == "m3u8") {
+        suffixName = "m3u";
+      }
       localStorage.setItem("tvlistUrl", tvlistUrl);
-    } else if (localStorage.getItem("tvlistUrl")) {
-      tvlistUrl = localStorage.getItem("tvlistUrl");
-      url.value = url0;
     } else {
       tvlistUrl = "/tvlist.txt";
-      url.value = url0;
     }
+    url.value = url0;
     // tvurl
     let d = await listTv(tvlistUrl);
-    tvs.value = parse(d.data, tvlistUrl);
+    tvs.value = parse(d.data, suffixName);
     if (!url.value) {
       url.value = tvs.value[1].url;
     }
