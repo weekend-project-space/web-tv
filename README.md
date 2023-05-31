@@ -31,3 +31,5 @@ http://01234.fun?s=https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-
 - https://owen2000wy.github.io/
 
 - https://github.com/imDazui/Tvlist-awesome-m3u-m3u8
+
+- https://github.com/iptv-org/iptv
