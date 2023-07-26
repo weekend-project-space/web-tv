@@ -28,13 +28,15 @@ localhost:5173/#/?s=xxx.json||xxx.txt||xxx.m3u
 - s: tv list source
 - url: video url
 
+**tvlist**
+
 http://01234.fun?s=https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E5%85%A8%E5%9B%BD%E6%99%AF%E5%8C%BA%E6%BA%90.m3u8
 
 [tvlist](./public/tvlist.txt)
 
-- openclass (Support real-time subtitle translation)
+**openclass (Support real-time subtitle translation)**
 
-http://0123.fun?s=/openclass/openclass.txt
+http://01234.fun?s=/openclass/openclass.txt
 
 [openclass](./public/openclass/openclass.txt)
 
