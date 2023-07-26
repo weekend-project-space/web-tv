@@ -20,25 +20,28 @@ npm install
 npm run serve
 ```
 
-localhost:5173/#/?url=xxx.m3u8
-localhost:5173/#/?s=xxx.json||xxx.txt||xxx.m3u
+- localhost:5173/#/?url=xxx.m3u8||xxx.mp4
+
+- localhost:5173/#/?s=xxx.json||xxx.txt||xxx.m3u
 
 ## Simple
 
+**query params**
+
 - s: tv list source
-- url: video url
+- url: video url & caption:(only support vtt)
 
 **tvlist**
 
 http://01234.fun?s=https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/%E5%85%A8%E5%9B%BD%E6%99%AF%E5%8C%BA%E6%BA%90.m3u8
 
-[tvlist](./public/tvlist.txt)
+[tvlist source file](./public/tvlist.txt)
 
 **openclass (Support real-time subtitle translation)**
 
 http://01234.fun?s=/openclass/openclass.txt
 
-[openclass](./public/openclass/openclass.txt)
+[openclass source file](./public/openclass/openclass.txt)
 
 ## TV information source
 
@@ -52,4 +55,8 @@ http://01234.fun?s=/openclass/openclass.txt
 
 - subtitle translation Incomplete display?
 
-set Subtitle font 50%
+  set Subtitle font 50%
+
+- srt not support?
+
+  [srt-to-vtt](https://www.veed.io/tools/subtitle-converter/srt-to-vtt)
