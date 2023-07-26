@@ -9,7 +9,11 @@
           <span v-if="i.isTv" @click="setTitle(i.name)">
             <a
               :href="
-                '/#/?url=' + i.url + '&caption=' + (i.caption || i.meta.caption)
+                '/#/?url=' +
+                i.url +
+                (i.caption || i.meta.caption
+                  ? '&caption=' + (i.caption || i.meta.caption)
+                  : '')
               "
               :class="{ active: active == i.url }"
               class="sub-nav"
