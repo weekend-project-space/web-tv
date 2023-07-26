@@ -8,7 +8,9 @@
         <li v-for="i in tvs" :key="i.name">
           <span v-if="i.isTv" @click="setTitle(i.name)">
             <a
-              :href="'/#/?url=' + i.url"
+              :href="
+                '/#/?url=' + i.url + '&caption=' + (i.caption || i.meta.caption)
+              "
               :class="{ active: active == i.url }"
               class="sub-nav"
             >
@@ -44,13 +46,13 @@ function setTitle(title) {
   z-index: 100;
   color: #fff;
   .nav-menu {
-    width: 2rem;
-    height: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
     padding: 1rem;
     background: rgba(0, 0, 0, 0.3);
     border-radius: 50%;
     .logo {
-      width: 2rem;
+      width: 1.5rem;
     }
   }
   .nav-list-warp {
@@ -68,7 +70,7 @@ function setTitle(title) {
     }
   }
   .active {
-    color: #535bf2;
+    color: #fd6a30;
   }
   .nav-list {
     margin: 0;
@@ -89,6 +91,9 @@ function setTitle(title) {
       max-height: 2rem;
       margin-right: 2rem;
     }
+  }
+  a {
+    color: #fff;
   }
 }
 </style>

@@ -1,6 +1,6 @@
 # WebTV
 
-web tv , online stream tv , support m3u m3u8
+web tv , online stream tv , support m3u m3u8 , Support real-time subtitle translation
 
 ## Online
 
@@ -32,6 +32,12 @@ http://01234.fun?s=https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-
 
 [tvlist](./public/tvlist.txt)
 
+- openclass (Support real-time subtitle translation)
+
+http://0123.fun?s=/openclass/openclass.txt
+
+[openclass](./public/openclass/openclass.txt)
+
 ## TV information source
 
 - https://owen2000wy.github.io/
@@ -39,3 +45,9 @@ http://01234.fun?s=https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-
 - https://github.com/imDazui/Tvlist-awesome-m3u-m3u8
 
 - https://github.com/iptv-org/iptv
+
+## QA:
+
+- subtitle translation Incomplete display?
+
+set Subtitle font 50%

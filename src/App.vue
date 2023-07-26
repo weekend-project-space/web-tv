@@ -1,6 +1,6 @@
 <template>
   <Nav :tvs="tvs" :active="url"></Nav>
-  <component :is="currentView" :value="url" />
+  <component :is="currentView" :value="url" :track="caption" />
 </template>
 
 <script setup>
@@ -16,6 +16,7 @@ const routes = {
 const currentPath = ref(window.location.hash);
 const url = ref("");
 const tvs = ref([]);
+const caption = ref("");
 window.addEventListener("hashchange", () => {
   currentPath.value = window.location.hash;
 });
@@ -24,6 +25,9 @@ const currentView = computed(() => {
     url.value = new URLSearchParams(
       currentPath.value.slice(currentPath.value.indexOf("?"))
     ).get("url");
+    caption.value = new URLSearchParams(
+      currentPath.value.slice(currentPath.value.indexOf("?"))
+    ).get("caption");
   }
   return routes[currentPath.value.slice(1).split("?")[0] || "/"] || NotFound;
 });
@@ -31,6 +35,7 @@ const currentView = computed(() => {
 onMounted(() => {
   async function initTvList() {
     let params = new URLSearchParams(window.location.search);
+    caption.value = params.get("caption");
     let url0 = params.get("url");
     let tvlistUrl = params.get("s");
     if (!(url0 || tvlistUrl)) {
@@ -53,6 +58,7 @@ onMounted(() => {
     tvs.value = parse(d.data, suffixName);
     if (!url.value) {
       url.value = tvs.value[1].url;
+      caption.value = tvs.value[1].caption;
     }
   }
   initTvList();

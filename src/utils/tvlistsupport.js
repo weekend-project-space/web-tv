@@ -59,6 +59,7 @@ const convert = {
                     name: args[0],
                     url: args[1],
                     isTv: args[1].includes("http"),
+                    caption: args.length > 2 ? args[2] : undefined
                 };
             }
         });

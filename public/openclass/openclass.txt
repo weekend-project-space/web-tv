@@ -1,0 +1,3 @@
+可汗学院,#genre#
+比例,https://mov.bn.netease.com/open-movie/nos/mp4/2014/07/16/SA0BP5PV6_sd.mp4,/openclass/SA0BP5PV6_sd.vtt
+求比例中的未知数,https://mov.bn.netease.com/open-movie/nos/mp4/2014/07/16/SA0BPK954_sd.mp4,/openclass/SA0BPK954_sd.vtt
