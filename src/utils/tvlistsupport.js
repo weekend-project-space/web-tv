@@ -52,13 +52,13 @@ const convert = {
         return r;
     },
     txt: (obj) => {
-        return obj.split("\n").map((line) => {
+        return obj.split("\n").filter(line => line.trim().length).map((line) => {
             if (line) {
                 let args = line.split(",");
                 return {
                     name: args[0],
                     url: args[1],
-                    isTv: args[1].includes("http"),
+                    isTv: args[1] && args[1].includes("http"),
                     caption: args.length > 2 ? args[2] : undefined
                 };
             }

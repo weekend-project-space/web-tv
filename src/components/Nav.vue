@@ -11,7 +11,7 @@
               :href="
                 '/#/?url=' +
                 i.url +
-                (i.caption || i.meta.caption
+                (i.caption || (i.meta && i.meta.caption)
                   ? '&caption=' + (i.caption || i.meta.caption)
                   : '')
               "
