@@ -5,7 +5,8 @@ export function parse(obj, name) {
 
 
 export function suffix(name) {
-    return name.lastIndexOf('.') > 0 - 1 ? name.substring(name.lastIndexOf('.') + 1) : name;
+    name = name.lastIndexOf('/') > 0 - 1 ? name.substring(name.lastIndexOf('/') + 1) : name;
+    return name.lastIndexOf('.') > 0 - 1 ? name.substring(name.lastIndexOf('.') + 1) : 'm3u';
 }
 
 const convert = {
