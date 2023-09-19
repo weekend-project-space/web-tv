@@ -12,6 +12,10 @@ One click deployment to Vercel
 
 [![deploy](https://camo.githubusercontent.com/5e471e99e8e022cf454693e38ec843036ec6301e27ee1e1fa10325b1cb720584/68747470733a2f2f76657263656c2e636f6d2f627574746f6e)](https://vercel.com/new/clone?repository-url=https://github.com/weekend-project-space/web-tv)
 
+## mobile - tv online
+
+[tv-online](https://github.com/weekend-project-space/tv-online)
+
 ## Setup
 
 ```
