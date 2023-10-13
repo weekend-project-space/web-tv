@@ -43,7 +43,7 @@ onMounted(() => {
       url0 = params.get("url");
       tvlistUrl = params.get("s");
     }
-    tvlistUrl = tvlistUrl || localStorage.getItem("tvlistUrl") || "/tvlist.txt";
+    tvlistUrl = tvlistUrl || localStorage.getItem("tvlistUrl") || "https://raw.githubusercontent.com/imDazui/Tvlist-awesome-m3u-m3u8/master/m3u/全国景区源.m3u8";
     let suffixName = tvlistUrl && suffix(tvlistUrl);
     if (tvlistUrl) {
       if (suffixName == "m3u8") {
